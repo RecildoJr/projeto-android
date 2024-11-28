@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kaushan+Script&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype'); /*tivemos que colocar .. para que a font idroid funcionasse; 
+    .quer dizer a pasta atual;
+    ..quer dizer volte uma pasta e abra ela*/
+    font-weight: normal;
+
+}
+
+:root{
+    --background:#00F6FA;
+    --h1header:#ffffff;
+    --h1main: #00898B;
+    --header:#006869;
+    --nav:#00898B;
+
+    --font-padrao: arial, verdana, helvetica, sans-serif;
+    --font-destaque:'Bebas neue', sans-serif;
+    --font-android:'Android', sans-serif
+}/*Pseudoclasse, que nem java ou python voce declara algumas variaveis que pode vir a usar durante o codigo right? that's called :root here*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+} /*O * ele seleciona todo o h1,h2,h3,p,nav,footer,main e em diante e dentro dele vc faz a configuraçao universal que tu queres. nesse caso eu escolhi so margin e oadding.
+vc poderia tambme escrever nav,p, h1, h2,h3... e configurar; mas aqui simplificamos com o *;*/
+
+body{
+    background-color:var(--background);
+    font-family: var(--font-padrao);
+}
+
+a.externo::after {
+    content: '\0020\1F517';
+}
+
+header{
+    background-image: linear-gradient(to bottom, var(--h1main), var(--header)); /*para criar um degrade de cores do background no header*/
+    min-height: 150px;/*aqui colocamos a altura minima do header*/
+    text-align: center;
+    padding-top: 40px;
+}
+
+header > h1{
+    color: var(--h1header);
+    font-family: var(--font-destaque);
+    font-size: 3em;
+    margin-bottom: 20px;/*para afastar o h1 do p*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.419);
+   
+}
+
+header > p{
+    color: white;
+    font-family: var(--font-padrao);/*fonte do paragrafo*/
+    font-size: 1.2em;
+    max-width: 500px;/*para que o texto do paragrafo nao seje longo, e complementamos com o margin auto abaixo para centralizar, esses dois estao trabalhando juntos*/
+    margin: auto;
+    /*margin-bottom: 20px;*/
+    padding-right: 10px;
+    padding-left: 10px;/*esses dois paddings é para quando o o site abrir no cell o testo ter uma distancia de padding de 10px e nao ficar grudando*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.419);
+    
+
+
+}
+
+nav{
+    background-color: var(--header);
+    padding: 10px;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.363);
+}
+
+nav > a {
+    color:var(--nav);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none; /*por padrao link vem azul e sublinhado. com text-decoration none, tiramos esse style dele ficando neutro*/
+    font-weight: bold;
+    transition-duration: 0.5s;/*quando mexer o mause por cima do link ele leva (ex:1s ou 0.5s) de transiçao*/
+}
+
+nav > a:hover{
+    background-color:var(--nav);
+    color: var(--header);
+}
+
+main{
+    background-color: white;
+    min-width: 320px;
+    max-width: 1000px;
+    margin: auto; /*Em telas muito cheias(televisao) o site nao cresce ficando grande, o margin auto tambem centraliza o conteudo main aqui*/
+    margin-bottom: 30px; /*Margin embaixo para que o conteudo main nao fico connected com o footer*/
+    padding: 20px;
+    border-radius: 0px;/*para colocar borda*/ /*Dessa forma ele configura todos os cantos, mas se colocar 2 medidas ele configura duas bordas opostas(diagonais)*/
+    border-bottom-right-radius: 15px;/*Assim configuramos as bordas manualmente, focando em cada canto*/
+    border-bottom-left-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.401); /*para colocar sombra*/
+}
+
+div.video {
+    background-color: var(--header);
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 57%;
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+main h1{
+    color: var(--h1main);
+    font-family: var(--font-android);
+}
+
+main h2{
+    font-family: var(--font-android);
+    color: var(--header);
+    font-size: 1.2em;
+    background-image: linear-gradient(to right, var(--h1main), transparent);
+    text-indent: 6px;
+}
+
+main p { /*main p para que apenes foque nos paragrfos do main e nao mexa o paragrafo do header*/
+
+    margin: 15px 0px; /*Dando o paragrafo um distanciamento do h2/h2...*/
+    text-align: justify; /*para colocar o testo do paragrafo alinhado e justificado*/
+    text-indent: 30px;/*para que dé um recuo no inicio de todos os paragrafos*/
+    font-size: 1em;
+    line-height: 1.5em; /*aqui é para dar um espaçamento em cada linha do paragrafo*/
+}
+
+main strong {
+    color:var(--header) ;
+    font-weight: bold;
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--header);
+    background-color: #00F6FA;
+    padding: 2px 5px;
+}
+
+main a:hover{
+    text-decoration: underline;
+    color: #b2feff;
+}
+
+main img{
+    width: 100%; /*Ter a largura de 100%, faz com que as fotos se adaptem*/
+}
+
+main img.pequena {
+    max-width: 350px; /*para que a imagem se adapte no celular ou tablet, e nao fique pequena
+    colocando o (width:100%) ele fica pequeno no celular mas ainda assim se adapta no celular
+    ---com o max-width ele diz olha "O tamanho maximo de largura é esse"*/
+    display: block;
+    margin: auto;
+} /* O (.pequena) é da class da imagem do bugdroid*/
+
+/*caso pensasse em centralizar essa imagem, nao poderia usar o margin auto, porque img nao é um bloco*/
+
+aside {
+    background-color: var(--background);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+
+}
+
+aside > h3 {
+    background-color: var(--header);
+    color: white;
+    padding: 15px;
+    margin: -10px -10px 0px -10px; /*as margens negativas fazem a margem sair para fora(isso mesmo).*/
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul {
+    list-style-type: "\2714\0020"; /*para colocar emoji no lugar das bolinhas/square... o 0020 da um espaçamento. essa linha nao é compativel com todos navegadores*/
+    list-style-position: inside; /*para que a lista fique dentro da aside*/
+    columns: 2; /*para que a coluna se divida em 2 partes*/
+}
+
+footer{
+    background-color: #20ababb7;
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px 5px;
+}
+
+footer > p > a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--header);
+}
